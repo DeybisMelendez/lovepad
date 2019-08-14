@@ -38,4 +38,12 @@ function lovepad:isDown(id)
 	end
 end
 
+function lovepad:remove(id)
+    for index, button in ipairs(self.buttons) do
+        if button.id == id then table.remove(self.buttons, index)
+		return true
+    end
+	return false
+end
+
 return lovepad
