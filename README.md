@@ -21,9 +21,9 @@ radius = 50,
 ```
 Note: The button is instanced in `lovepad.buttons`.
 
-## Button Propierties
+## Button Properties
 
-| Propierty | Type   |
+| Property | Type   |
 |-----------|:------:|
 |     x     | number |
 |     y     | number |
