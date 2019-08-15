@@ -1,6 +1,9 @@
 # lovepad
 Virtual gamepad for love2d
 
+[![Build Status](https://travis-ci.org/DeybisMelendez/lovepad.svg?branch=master)](https://travis-ci.org/DeybisMelendez/lovepad)
+[![License](http://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
+
 ## How to use
 
 Download `lovepad.lua` and write in your `main.lua`:
