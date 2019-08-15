@@ -8,6 +8,8 @@ Download `lovepad.lua` and write in your `main.lua`:
 lovepad = require "lovepad"
 ```
 
+Note: Read or test `main.lua` as example.
+
 ## Creating a button
 
 ```lua
