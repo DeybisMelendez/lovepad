@@ -29,7 +29,7 @@ lovepad:setGamePad()
 
 ## Screenshot, read main.lua
 
-
+![screenshot](https://raw.githubusercontent.com/DeybisMelendez/lovepad/master/screenshot.png)
 
 ## Button Properties
 
@@ -56,6 +56,15 @@ Draws the buttons.
 lovepad:update()
 ```
 Updates the buttons.
+
+```lua
+lovepad:setGamePad([radius, xyButton, font])
+```
+Create a simple gamepad.
+
+`radius` [number] sets the button radius.
+`xyButton` [boolean] create additional buttons (x, y).
+`font` [Font] sets the font to text buttons.
 
 ```lua
 lovepad:isDown(id)
