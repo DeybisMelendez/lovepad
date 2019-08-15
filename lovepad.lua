@@ -31,13 +31,13 @@ normalColor = {1, 0, 0, 1}, pressedColor = {0,1,0,0.5}, mode = "fill",
 isDown = false, _lastIsDown = false}
 
 function lovepad:new(o)
-	o = o or {}
-	setmetatable(o, {__index = mt})
+    o = o or {}
+    setmetatable(o, {__index = mt})
     self.buttons[o.text] = o
 end
 
 function lovepad:draw()
-	for _, button in pairs(self.buttons) do
+    for _, button in pairs(self.buttons) do
         if button.isDown then
             love.graphics.setColor(button.pressedColor)
         else
@@ -45,24 +45,24 @@ function lovepad:draw()
         end
         love.graphics.circle(button.mode, button.x, button.y, button.radius)
         love.graphics.setColor(button.fontColor)
-		love.graphics.printf(button.text, button.font, button.x - button.radius,
+        love.graphics.printf(button.text, button.font, button.x - button.radius,
             button.y - button.font:getHeight()/2, button.radius * 2, "center")
-	end
-	love.graphics.setColor(1, 1, 1, 1)
+    end
+    love.graphics.setColor(1, 1, 1, 1)
 end
 
 function lovepad:update()
-	local touches = love.touch.getTouches()
-	for _, button in pairs(self.buttons) do
+    local touches = love.touch.getTouches()
+    for _, button in pairs(self.buttons) do
         button._lastIsDown = button.isDown
-		button.isDown = false
-		for _, touch in ipairs(touches) do
-		    local xt, yt = love.touch.getPosition(touch)
-			if (math.abs((xt - button.x))^2 + math.abs((yt - button.y))^2)^0.5 < button.radius then
-				button.isDown = true
-			end
-		end
-	end
+        button.isDown = false
+        for _, touch in ipairs(touches) do
+            local xt, yt = love.touch.getPosition(touch)
+            if (math.abs((xt - button.x))^2 + math.abs((yt - button.y))^2)^0.5 < button.radius then
+                button.isDown = true
+            end
+        end
+    end
 end
 
 function lovepad:isDown(id)
