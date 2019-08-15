@@ -1,20 +1,30 @@
-lovepad = require 'lovepad'
+local lovepad = require 'lovepad'
 lovepad:setGamePad(30, true)
-local text, upr, upp, downr, downp, leftr, leftp, rightr, rightp, ar, ap, br, bp, xr, xp, yr, yp = '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+local text, upr, upp, downr, downp = '', 0, 0, 0, 0
+local leftr, leftp, rightr, rightp = 0, 0, 0, 0
+local ar, ap, br, bp, xr, xp, yr, yp = 0, 0, 0, 0, 0, 0, 0, 0
 function love.draw()
     love.graphics.printf(text, 0, 0, love.graphics.getWidth())
     lovepad:draw()
 end
-function love.update(dt)
+function love.update(_)
     lovepad:update()
-    text = 'Button Up --> isDown: ' .. tostring(lovepad:isDown('Up')) .. ' Released count: ' .. upr .. ' Pressed count: ' .. upp ..
-    '\n' .. 'Button Down --> isDown: ' .. tostring(lovepad:isDown('Down')) .. ' Released count: ' .. downr .. ' Pressed count: ' .. downp ..
-    '\n' .. 'Button Left --> isDown: ' .. tostring(lovepad:isDown('Left')) .. ' Released count: ' .. leftr .. ' Pressed count: ' .. leftp ..
-    '\n' .. 'Button Right --> isDown: ' .. tostring(lovepad:isDown('Right')) .. ' Released count: ' .. rightr .. ' Pressed count: ' .. rightp ..
-    '\n' .. 'Button A --> isDown: ' .. tostring(lovepad:isDown('A')) .. ' Released count: ' .. ar .. ' Pressed count: ' .. ap ..
-    '\n' .. 'Button B --> isDown: ' .. tostring(lovepad:isDown('B')) .. ' Released count: ' .. br .. ' Pressed count: ' .. bp ..
-    '\n' .. 'Button X --> isDown: ' .. tostring(lovepad:isDown('X')) .. ' Released count: ' .. xr .. ' Pressed count: ' .. xp ..
-    '\n' .. 'Button Y --> isDown: ' .. tostring(lovepad:isDown('Y')) .. ' Released count: ' .. yr .. ' Pressed count: ' .. yp
+    text = 'Button Up --> isDown: ' .. tostring(lovepad:isDown('Up'))
+    .. ' Released count: ' .. upr .. ' Pressed count: ' .. upp ..
+    '\n' .. 'Button Down --> isDown: ' .. tostring(lovepad:isDown('Down'))
+    .. ' Released count: ' .. downr .. ' Pressed count: ' .. downp ..
+    '\n' .. 'Button Left --> isDown: ' .. tostring(lovepad:isDown('Left'))
+    .. ' Released count: ' .. leftr .. ' Pressed count: ' .. leftp ..
+    '\n' .. 'Button Right --> isDown: ' .. tostring(lovepad:isDown('Right'))
+    .. ' Released count: ' .. rightr .. ' Pressed count: ' .. rightp ..
+    '\n' .. 'Button A --> isDown: ' .. tostring(lovepad:isDown('A'))
+    .. ' Released count: ' .. ar .. ' Pressed count: ' .. ap ..
+    '\n' .. 'Button B --> isDown: ' .. tostring(lovepad:isDown('B'))
+    .. ' Released count: ' .. br .. ' Pressed count: ' .. bp ..
+    '\n' .. 'Button X --> isDown: ' .. tostring(lovepad:isDown('X'))
+    .. ' Released count: ' .. xr .. ' Pressed count: ' .. xp ..
+    '\n' .. 'Button Y --> isDown: ' .. tostring(lovepad:isDown('Y'))
+    .. ' Released count: ' .. yr .. ' Pressed count: ' .. yp
 
     if lovepad:isPressed('Up') then upp = upp + 1 end
     if lovepad:isPressed('Down') then downp = downp + 1 end

@@ -37,7 +37,7 @@ function lovepad:new(o)
 end
 
 function lovepad:draw()
-	for index, button in pairs(self.buttons) do
+	for _, button in pairs(self.buttons) do
         if button.isDown then
             love.graphics.setColor(button.pressedColor)
         else
@@ -93,7 +93,8 @@ function lovepad:setGamePad(radius, xy, font)
         x = radius * 3,
         y = height - radius * 1.25,
         normalColor = {0.8,0.8,0.8,0.5},
-        pressedColor = {0.4,0.4,0.4,0.5}
+        pressedColor = {0.4,0.4,0.4,0.5},
+        font = font
     }
     self:new{
         text = 'Up',
@@ -101,7 +102,8 @@ function lovepad:setGamePad(radius, xy, font)
         x = radius * 3,
         y = height - radius * 4.5,
         normalColor = {0.8,0.8,0.8,0.5},
-        pressedColor = {0.4,0.4,0.4,0.5}
+        pressedColor = {0.4,0.4,0.4,0.5},
+        font = font
     }
     self:new{
         text = 'Left',
@@ -109,7 +111,8 @@ function lovepad:setGamePad(radius, xy, font)
         x = radius * 1.25,
         y = height - radius * 2.75,
         normalColor = {0.8,0.8,0.8,0.5},
-        pressedColor = {0.4,0.4,0.4,0.5}
+        pressedColor = {0.4,0.4,0.4,0.5},
+        font = font
     }
     self:new{
         text = 'Right',
@@ -117,7 +120,8 @@ function lovepad:setGamePad(radius, xy, font)
         x = radius * 4.75,
         y = height - radius * 2.75,
         normalColor = {0.8,0.8,0.8,0.5},
-        pressedColor = {0.4,0.4,0.4,0.5}
+        pressedColor = {0.4,0.4,0.4,0.5},
+        font = font
     }
     self:new{
         text = 'A',
@@ -125,7 +129,8 @@ function lovepad:setGamePad(radius, xy, font)
         x = width - radius * 1.25,
         y = height - radius * 2.75,
         normalColor = {0.9,0.1,0.1,0.5},
-        pressedColor = {0.4,0,0,0.5}
+        pressedColor = {0.4,0,0,0.5},
+        font = font
     }
     self:new{
         text = 'B',
@@ -133,7 +138,8 @@ function lovepad:setGamePad(radius, xy, font)
         x = width - radius * 3,
         y = height - radius * 1.25,
         normalColor = {0,0.9,0,0.5},
-        pressedColor = {0,0.4,0,0.5}
+        pressedColor = {0,0.4,0,0.5},
+        font = font
     }
     if xy then
         self:new{
@@ -142,7 +148,8 @@ function lovepad:setGamePad(radius, xy, font)
             x = width - radius * 3,
             y = height - radius * 4.5,
             normalColor = {0.9,0.9,0,0.5},
-            pressedColor = {0.4,0.4,0,0.5}
+            pressedColor = {0.4,0.4,0,0.5},
+            font = font
         }
         self:new{
             text = 'Y',
@@ -150,7 +157,8 @@ function lovepad:setGamePad(radius, xy, font)
             x = width - radius * 4.75,
             y = height - radius * 2.75,
             normalColor = {0,0,0.9,0.5},
-            pressedColor = {0,0,0.4,0.5}
+            pressedColor = {0,0,0.4,0.5},
+            font = font
         }
     end
 end
