@@ -26,7 +26,7 @@ SOFTWARE.
 --]]
 
 local lovepad = {buttons = {}, _VERSION = "v1.0.0", _TYPE= "module", _NAME = "lovepad"}
-local mt = {x = 0, y = 0, radius = 40, text = "button", font = love.graphics.getFont(), colorFont = {1, 1, 1, 1},
+local mt = {x = 0, y = 0, radius = 40, text = "button", font = love.graphics.getFont(), fontColor= {1, 1, 1, 1},
 normalColor = {1, 0, 0, 1}, pressedColor = {0,1,0,0.5}, mode = "fill",
 isDown = false, _lastIsDown = false}
 
@@ -44,7 +44,7 @@ function lovepad:draw()
             love.graphics.setColor(button.normalColor)
         end
         love.graphics.circle(button.mode, button.x, button.y, button.radius)
-        love.graphics.setColor(button.colorFont)
+        love.graphics.setColor(button.fontColor)
 		love.graphics.printf(button.text, button.font, button.x - button.radius,
             button.y - button.font:getHeight()/2, button.radius * 2, "center")
 	end

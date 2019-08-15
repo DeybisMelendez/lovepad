@@ -42,7 +42,7 @@ lovepad:setGamePad()
 |   radius  | number |
 |    text   | string |
 |   font    | Font   |
-|colorFont  | table {r, g, b, a} |
+|fontColor  | table {r, g, b, a} |
 |normalColor| table {r, g, b, a} |
 |pressedColor| table {r, g, b, a} |
 |    mode     | string ("fill" or "line") |
