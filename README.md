@@ -63,11 +63,13 @@ lovepad:update()
 Updates the buttons.
 
 ```lua
-lovepad:setGamePad([radius, xyButton, font])
+lovepad:setGamePad([radius, dirButton, abButton, xyButton, font])
 ```
 Create a simple gamepad.
 
 `radius` [number] sets the button radius.
+`dirButton` [boolean] create directional buttons.
+`abButton` [boolean] create additional buttons (a, b)
 `xyButton` [boolean] create additional buttons (x, y).
 `font` [Font] sets the font to text buttons.
 
