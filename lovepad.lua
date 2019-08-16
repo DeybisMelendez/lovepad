@@ -1,7 +1,7 @@
 --[[
 Lovepad
-Developer: Deybis Melendez
 Web: https://github.com/DeybisMelendez/lovepad
+
 MIT License
 
 Copyright (c) 2019 Deybis Melendez
@@ -23,9 +23,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
---]]
+]]
 
-local lovepad = {buttons = {}, _VERSION = "v1.0.0", _TYPE= "module", _NAME = "lovepad"}
+local lovepad = {_VERSION = "v1.0.0", _TYPE= "module", _NAME = "lovepad", buttons = {}}
 local mt = {x = 0, y = 0, radius = 40, text = "button", font = love.graphics.getFont(), fontColor= {1, 1, 1, 1},
 normalColor = {1, 0, 0, 1}, pressedColor = {0,1,0,0.5}, mode = "fill",
 isDown = false, _lastIsDown = false}
@@ -81,66 +81,72 @@ function lovepad:remove(id)
     table.remove(self.buttons, id)
 end
 
-function lovepad:setGamePad(radius, xy, font)
+function lovepad:setGamePad(radius, dir, ab, xy, font)
     local width = love.graphics.getWidth()
     local height = love.graphics.getHeight()
-    font = font or love.graphics.getFont()
     radius = radius or width/24
+    dir = dir or true
+    ab = ab or true
     xy = xy or false
-    self:new{
-        text = 'Down',
-        radius = radius,
-        x = radius * 3,
-        y = height - radius * 1.25,
-        normalColor = {0.8,0.8,0.8,0.5},
-        pressedColor = {0.4,0.4,0.4,0.5},
-        font = font
-    }
-    self:new{
-        text = 'Up',
-        radius = radius,
-        x = radius * 3,
-        y = height - radius * 4.5,
-        normalColor = {0.8,0.8,0.8,0.5},
-        pressedColor = {0.4,0.4,0.4,0.5},
-        font = font
-    }
-    self:new{
-        text = 'Left',
-        radius = radius,
-        x = radius * 1.25,
-        y = height - radius * 2.75,
-        normalColor = {0.8,0.8,0.8,0.5},
-        pressedColor = {0.4,0.4,0.4,0.5},
-        font = font
-    }
-    self:new{
-        text = 'Right',
-        radius = radius,
-        x = radius * 4.75,
-        y = height - radius * 2.75,
-        normalColor = {0.8,0.8,0.8,0.5},
-        pressedColor = {0.4,0.4,0.4,0.5},
-        font = font
-    }
-    self:new{
-        text = 'A',
-        radius = radius,
-        x = width - radius * 1.25,
-        y = height - radius * 2.75,
-        normalColor = {0.9,0.1,0.1,0.5},
-        pressedColor = {0.4,0,0,0.5},
-        font = font
-    }
-    self:new{
-        text = 'B',
-        radius = radius,
-        x = width - radius * 3,
-        y = height - radius * 1.25,
-        normalColor = {0,0.9,0,0.5},
-        pressedColor = {0,0.4,0,0.5},
-        font = font
-    }
+    font = font or love.graphics.getFont()
+    if dir then
+        self:new{
+            text = 'Down',
+            radius = radius,
+            x = radius * 3,
+            y = height - radius * 1.25,
+            normalColor = {0.8,0.8,0.8,0.5},
+            pressedColor = {0.4,0.4,0.4,0.5},
+            font = font
+        }
+        self:new{
+            text = 'Up',
+            radius = radius,
+            x = radius * 3,
+            y = height - radius * 4.5,
+            normalColor = {0.8,0.8,0.8,0.5},
+            pressedColor = {0.4,0.4,0.4,0.5},
+            font = font
+        }
+        self:new{
+            text = 'Left',
+            radius = radius,
+            x = radius * 1.25,
+            y = height - radius * 2.75,
+            normalColor = {0.8,0.8,0.8,0.5},
+            pressedColor = {0.4,0.4,0.4,0.5},
+            font = font
+        }
+        self:new{
+            text = 'Right',
+            radius = radius,
+            x = radius * 4.75,
+            y = height - radius * 2.75,
+            normalColor = {0.8,0.8,0.8,0.5},
+            pressedColor = {0.4,0.4,0.4,0.5},
+            font = font
+        }
+    end
+    if ab then
+        self:new{
+            text = 'A',
+            radius = radius,
+            x = width - radius * 1.25,
+            y = height - radius * 2.75,
+            normalColor = {0.9,0.1,0.1,0.5},
+            pressedColor = {0.4,0,0,0.5},
+            font = font
+        }
+        self:new{
+            text = 'B',
+            radius = radius,
+            x = width - radius * 3,
+            y = height - radius * 1.25,
+            normalColor = {0,0.9,0,0.5},
+            pressedColor = {0,0.4,0,0.5},
+            font = font
+        }
+    end
     if xy then
         self:new{
             text = 'X',

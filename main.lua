@@ -1,5 +1,5 @@
 local lovepad = require 'lovepad'
-lovepad:setGamePad(30, true)
+lovepad:setGamePad(30, true, true, true)
 local text, upr, upp, downr, downp = '', 0, 0, 0, 0
 local leftr, leftp, rightr, rightp = 0, 0, 0, 0
 local ar, ap, br, bp, xr, xp, yr, yp = 0, 0, 0, 0, 0, 0, 0, 0
